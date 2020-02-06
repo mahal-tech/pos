@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProductRequest as StoreRequest;
-use App\Http\Requests\ProductRequest as UpdateRequest;
+use App\Http\Requests\UnitRequest as StoreRequest;
+use App\Http\Requests\UnitRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class ProductCrudController
+ * Class UnitCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class ProductCrudController extends CrudController
+class UnitCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,9 +23,9 @@ class ProductCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Product');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
-        $this->crud->setEntityNameStrings('product', 'products');
+        $this->crud->setModel('App\Models\Unit');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/unit');
+        $this->crud->setEntityNameStrings('unit', 'units');
 
         /*
         |--------------------------------------------------------------------------
@@ -34,16 +34,9 @@ class ProductCrudController extends CrudController
         */
 
         // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->addFields([  // Select
-           'label' => "Category",
-           'type' => 'select',
-           'name' => 'category_id', // the db column for the foreign key
-           'entity' => 'category', // the method that defines the relationship in your Model
-           'attribute' => 'name', // foreign key attribute that is shown to user
-           'model' => "App\Models\Category",
-        ]);
+        $this->crud->setFromDb();
 
-        // add asterisk for fields that are required in ProductRequest
+        // add asterisk for fields that are required in UnitRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

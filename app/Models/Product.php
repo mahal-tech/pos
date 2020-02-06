@@ -28,7 +28,20 @@ class Product extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function category()
+    {
+        return $this->belognsTo("App\Models\Category");
+    }
 
+    public function company()
+    {
+        return $this->belognsTo("App\Models\Company");
+    }
+
+    public function unit()
+    {
+        return $this->belognsTo("App\Models\Unit");
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

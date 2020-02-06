@@ -18,9 +18,11 @@ class CreateProductsTable extends Migration
             $table->integer('company_id');
             $table->integer('unit_id');
             $table->string('name');
-            $table->string('model');
-            $table->string('size');
-            $table->string('image');
+            $table->string('model')->nullable();
+            $table->string('size')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('is_warranty')->default(0);
+            $table->integer('warranty_month')->default(0);
             $table->timestamps();
         });
     }
