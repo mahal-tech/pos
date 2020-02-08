@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CustomerRequest extends FormRequest
+class BankRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,8 @@ class CustomerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
+            'account_name' => 'required',
+            'account_no' => 'required',
         ];
     }
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomersTable extends Migration
+class CreatePurchaseReceiptsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('purchase_receipts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('address')->nullable();
-            $table->string('number')->nullable();
-            $table->string('email');
+            
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('purchase_receipts');
     }
 }
