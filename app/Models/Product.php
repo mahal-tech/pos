@@ -30,17 +30,17 @@ class Product extends Model
     */
     public function category()
     {
-        return $this->belognsTo("App\Models\Category");
+        return $this->belongsTo("App\Models\Category");
     }
 
     public function company()
     {
-        return $this->belognsTo("App\Models\Company");
+        return $this->belongsTo("App\Models\Company");
     }
 
     public function unit()
     {
-        return $this->belognsTo("App\Models\Unit");
+        return $this->belongsTo("App\Models\Unit");
     }
     /*
     |--------------------------------------------------------------------------

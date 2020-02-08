@@ -32,9 +32,8 @@ class ProductCrudController extends CrudController
         | CrudPanel Configuration
         |--------------------------------------------------------------------------
         */
-
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->addFields([  // Select
+        $this->crud->setFromDb();
+        $this->crud->addColumn([
            'label' => "Category",
            'type' => 'select',
            'name' => 'category_id', // the db column for the foreign key
@@ -42,6 +41,58 @@ class ProductCrudController extends CrudController
            'attribute' => 'name', // foreign key attribute that is shown to user
            'model' => "App\Models\Category",
         ]);
+
+        $this->crud->addColumn([
+           'label' => "Company",
+           'type' => 'select',
+           'name' => 'company_id', // the db column for the foreign key
+           'entity' => 'company', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\Company",
+        ]);
+
+        $this->crud->addColumn([
+           'label' => "Unit",
+           'type' => 'select',
+           'name' => 'unit_id', // the db column for the foreign key
+           'entity' => 'unit', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\Unit",
+        ]);
+
+        $this->crud->addField([
+            'label' => "Category",
+            'type' => 'select',
+            'name' => 'category_id', // the db column for the foreign key
+            'entity' => 'category', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Category",
+        ]);
+
+         $this->crud->addField([
+           'label' => "Company",
+           'type' => 'select',
+           'name' => 'company_id', // the db column for the foreign key
+           'entity' => 'company', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\Company",
+        ]);
+
+        $this->crud->addField([
+           'label' => "Unit",
+           'type' => 'select',
+           'name' => 'unit_id', // the db column for the foreign key
+           'entity' => 'unit', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\Unit",
+        ]);
+
+         $this->crud->addField([
+           'label' => "Image",
+           'type' => 'image',
+           'name' => 'image', // the db column for the foreign key
+        ]);
+
 
         // add asterisk for fields that are required in ProductRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');

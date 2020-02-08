@@ -9,8 +9,8 @@ $factory->define(Company::class, function (Faker $faker) {
     return [
        	'name' => 'Comp '.$faker->word,
        	'email' => $faker->email,
-       	'description' => $faker->text,
-       	'address' => $faker->text,
+       	'description' => $faker->word,
+       	'address' => $faker->word,
        	'number' => $faker->unique()->randomNumber($nbDigits = 8)
     ];
 });

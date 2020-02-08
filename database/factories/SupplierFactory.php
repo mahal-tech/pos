@@ -9,8 +9,8 @@ $factory->define(Supplier::class, function (Faker $faker) {
     return [
         'name'=>$faker->name,
         'email'=>$faker->email,
-        'description'=>$faker->text,
-        'address'=>$faker->text,
+        'description'=>$faker->word,
+        'address'=>$faker->word,
         'number'=> $faker->unique()->randomNumber($nbDigits = 8),
         'init_balance'=>0,
     ];
