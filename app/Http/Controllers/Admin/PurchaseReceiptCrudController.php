@@ -64,6 +64,12 @@ class PurchaseReceiptCrudController extends CrudController
             'name'=>'date',
         ]);
 
+        $this->crud->addField([
+            'type'=>'date_picker',
+            'label'=>'Date',
+            'name'=>'date',
+        ]);
+
         $this->crud->removeField('creator');
         // add asterisk for fields that are required in PurchaseReceiptRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
