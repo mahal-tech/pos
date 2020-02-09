@@ -22,6 +22,7 @@
 <li class="treeview">
 	<a href="#"><i class="fa fa-group"></i> <span>Purchase</span> <i class="fa fa-angle-left pull-right"></i></a>
 	<ul class="treeview-menu">
-		
+		<li><a href='{{ backpack_url('purchasereceipt') }}'><i class='fa fa-tag'></i> <span>Purchase Receipts</span></a></li>
 	</ul>
 </li>
+

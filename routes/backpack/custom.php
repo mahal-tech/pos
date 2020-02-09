@@ -22,4 +22,5 @@ Route::group([
     CRUD::resource('type', 'TypeCrudController');
     CRUD::resource('income', 'IncomeCrudController');
     CRUD::resource('expanse', 'ExpanseCrudController');
+    CRUD::resource('purchasereceipt', 'PurchaseReceiptCrudController');
 }); // this should be the absolute last line of this file

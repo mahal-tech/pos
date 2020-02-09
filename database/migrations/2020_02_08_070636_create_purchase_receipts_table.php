@@ -14,7 +14,13 @@ class CreatePurchaseReceiptsTable extends Migration
     {
         Schema::create('purchase_receipts', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->integer('supplier_id');
+            $table->integer('amount');
+            $table->integer('transport_cost')->nullable();
+            $table->integer('gift_on_purchase')->nullable();
+            $table->integer('paid')->nullable();
+            $table->date('date');
+            $table->integer('creator');
             $table->timestamps();
         });
     }
