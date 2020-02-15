@@ -9,7 +9,6 @@
 		<li><a href='{{ backpack_url('company') }}'><i class='fa fa-tag'></i> <span>Company</span></a></li>
 		<li><a href='{{ backpack_url('unit') }}'><i class='fa fa-tag'></i> <span>Unit</span></a></li>
 		<li><a href='{{ backpack_url('product') }}'><i class='fa fa-tag'></i> <span>Products</span></a></li>
-		<li><a href='{{ backpack_url('supplier') }}'><i class='fa fa-tag'></i> <span>Supplier</span></a></li>
 		<li><a href='{{ backpack_url('customer') }}'><i class='fa fa-tag'></i> <span>Customer</span></a></li>
 		<li><a href='{{ backpack_url('employee') }}'><i class='fa fa-tag'></i> <span>Employee</span></a></li>
 		<li><a href='{{ backpack_url('bank') }}'><i class='fa fa-tag'></i> <span>Bank</span></a></li>
@@ -22,7 +21,16 @@
 <li class="treeview">
 	<a href="#"><i class="fa fa-group"></i> <span>Purchase</span> <i class="fa fa-angle-left pull-right"></i></a>
 	<ul class="treeview-menu">
+		<li><a href='{{ backpack_url('supplier') }}'><i class='fa fa-tag'></i> <span>Supplier</span></a></li>
 		<li><a href='{{ backpack_url('purchasereceipt') }}'><i class='fa fa-tag'></i> <span>Purchase Receipts</span></a></li>
+		<li><a href='{{ backpack_url('purchaslisting') }}'><i class='fa fa-tag'></i> <span>Purchase listing</span></a></li>
+	</ul>
+</li>
+
+<li class="treeview">
+	<a href="#"><i class="fa fa-group"></i> <span>Report</span> <i class="fa fa-angle-left pull-right"></i></a>
+	<ul class="treeview-menu">
+		<li><a href='{{ backpack_url('purchas') }}'><i class='fa fa-tag'></i> <span>Purchas Report</span></a></li>
 	</ul>
 </li>
 

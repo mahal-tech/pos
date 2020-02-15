@@ -1,4 +1,5 @@
 <!-- jQuery 3.3.1 -->
+<script src="{{ asset('js/') }}/app.js"></script>
 <script src="{{ asset('vendor/adminlte') }}/bower_components/jquery/dist/jquery.min.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ asset('vendor/adminlte') }}/bower_components/jquery/dist/jquery.min.js"><\/script>')</script> --}}
