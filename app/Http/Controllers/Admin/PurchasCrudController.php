@@ -58,4 +58,10 @@ class PurchasCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
+    public function purchaselisting()
+    {
+        return view('admin.purchaselisting');
+    }
+
 }

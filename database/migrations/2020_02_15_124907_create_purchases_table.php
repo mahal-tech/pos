@@ -14,7 +14,14 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->integer('purchase_receipt_id');
+            $table->integer('product_id');
+            $table->integer('quantity');
+            $table->float('unit_buy_price');
+            $table->integer('unit_sale_price');
+            $table->integer('general_unit_sale_price');
+            $table->date('expire_date');
+            $table->text('description');
             $table->timestamps();
         });
     }
