@@ -53,12 +53,6 @@ class PurchaseReceiptCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'type'=>'number',
-            'label'=>'Paid',
-            'name'=>'paid',
-        ]);
-
-        $this->crud->addField([
             'type'=>'date_picker',
             'label'=>'Date',
             'name'=>'date',
@@ -70,10 +64,13 @@ class PurchaseReceiptCrudController extends CrudController
             'name'=>'date',
         ]);
 
+        
+        
         $this->crud->removeField('creator');
         // add asterisk for fields that are required in PurchaseReceiptRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
+        // $this->setPermissions();
     }
 
     public function store(StoreRequest $request)
@@ -110,4 +107,39 @@ class PurchaseReceiptCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
+    public function setPermissions()
+    {
+        // Get authenticated user
+        $user = auth()->user();
+
+        // Deny all accesses
+        $this->crud->denyAccess(['list', 'create', 'update', 'delete']);
+
+        // Allow list access
+        if ($user->can('list_products')) {
+            $this->crud->allowAccess('list');
+        }
+
+        // Allow create access
+        if ($user->can('create_product')) {
+            $this->crud->allowAccess('create');
+        }
+
+        // Allow update access
+        if ($user->can('update_product')) {
+            $this->crud->allowAccess('update');
+        }
+
+        // Allow clone access
+        if ($user->can('clone_product')) {
+            $this->crud->addButtonFromView('line', trans('product.clone'), 'clone_product', 'end');
+        }
+
+        // Allow delete access
+        if ($user->can('delete_product')) {
+            $this->crud->allowAccess('delete');
+        }
+    }
+
 }

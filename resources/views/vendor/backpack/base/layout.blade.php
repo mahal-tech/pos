@@ -14,7 +14,7 @@
 		})();
 	</script>
     <!-- Site wrapper -->
-    <div class="wrapper">
+    <div class="wrapper" id="app">
 
       @include('backpack::inc.main_header')
 
