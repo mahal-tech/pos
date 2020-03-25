@@ -8,7 +8,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\PurchaseReceiptRequest as StoreRequest;
 use App\Http\Requests\PurchaseReceiptRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
-
+use App\Transaction;
 /**
  * Class PurchaseReceiptCrudController
  * @package App\Http\Controllers\Admin
@@ -84,6 +84,23 @@ class PurchaseReceiptCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+
+        $transaction = new Transaction();
+        $transaction->purpose='purchase';
+        $transaction->ledger_id=$request->supplier_id;
+        $transaction->purpose='1';
+        $transaction->date=$request->date;
+        $transaction->amount=$request->amount;
+        $transaction->save();
+
+        $transaction = new Transaction();
+        $transaction->purpose='purchase_payment';
+        $transaction->ledger_id=$request->supplier_id;
+        $transaction->purpose='1';
+        $transaction->date=$request->date;
+        $transaction->amount=$request->paid;
+        $transaction->save();
+
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
