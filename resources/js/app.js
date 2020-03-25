@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('purchase-listing', require('./components/PurchaseListing.vue').default);
+Vue.component('multiselect', require('./components/multiselect.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
