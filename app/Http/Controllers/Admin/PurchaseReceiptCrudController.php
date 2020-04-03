@@ -9,6 +9,7 @@ use App\Http\Requests\PurchaseReceiptRequest as StoreRequest;
 use App\Http\Requests\PurchaseReceiptRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 use App\Transaction;
+use App\Models\PurchaseReceipt;
 /**
  * Class PurchaseReceiptCrudController
  * @package App\Http\Controllers\Admin
@@ -140,6 +141,11 @@ class PurchaseReceiptCrudController extends CrudController
         if ($user->can('delete_product')) {
             $this->crud->allowAccess('delete');
         }
+    }
+
+    public function allrecept()
+    {
+        return PurchaseReceipt::with('supplier')->get();
     }
 
 }

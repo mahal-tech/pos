@@ -13,6 +13,7 @@ Route::group([
 ], function () { // custom admin routes
 
     Route::get('/purchaslisting', 'PurchasCrudController@purchaselisting');
+    Route::get('/allrecept', 'PurchaseReceiptCrudController@allrecept');
 
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('category', 'CategoryCrudController');
@@ -22,7 +23,6 @@ Route::group([
     CRUD::resource('unit', 'UnitCrudController');
     CRUD::resource('bank', 'BankCrudController');
     CRUD::resource('employee', 'EmployeeCrudController');
-    CRUD::resource('type', 'TypeCrudController');
     CRUD::resource('income', 'IncomeCrudController');
     CRUD::resource('expanse', 'ExpanseCrudController');
     CRUD::resource('purchasereceipt', 'PurchaseReceiptCrudController');

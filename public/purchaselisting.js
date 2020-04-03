@@ -155,9 +155,10 @@ const vm = new Vue({
 		console.log(base_url);
 		var self = this;
 		$.ajax({
-			url: base_url+'/admin/recepts',
+			url: base_url+'/admin/allrecept',
 		})
 		.done(function(re) {
+			console.log(re)
 			for (var i = re.length - 1; i >= 0; i--) {
 		  		self.purchase_receipt_info.push(re[i]);
 		  	}
