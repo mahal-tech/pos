@@ -62,18 +62,17 @@ class OtherController extends Controller
 			$stock->last_buy_price=$request->total_buy_price;
 			$stock->update();
 		}else{
-			Bulkstock::create([
-				'amount'=>$quantity,
-				'product_id'=>$request->product_id
-				'shop_id'   => 1,
-				'bulk_unit_buy_price'=>$unit_buy_price_purchase,
-				'bulk_unit_sale_price'=>$exclusive_sale_price,
-				'general_unit_sale_price'=>$general_sale_price,
-				'bulk_alarming_stock'=>100,
-				'last_buy_price'=>$request->total_buy_price;
-			]);
+			$stock1=new Bulkstock();
+			$stock1->amount=$quantity;
+			$stock1->product_id=$request->product_id;
+			$stock1->shop_id   = 1;
+			$stock1->bulk_unit_buy_price=$unit_buy_price_purchase;
+			$stock1->bulk_unit_sale_price=$exclusive_sale_price;
+			$stock1->general_unit_sale_price=$general_sale_price;
+			$stock1->bulk_alarming_stock=100;
+			$stock1->last_buy_price=$request->total_buy_price;
+			$stock1->save();
 		}
-    	
     	return response(Purchase::with('product')->where('purchase_receipt_id',$request->purchase_receipt_id)->get());
     }
 }

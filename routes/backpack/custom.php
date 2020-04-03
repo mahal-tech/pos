@@ -17,6 +17,7 @@ Route::group([
     Route::get('/product/search/{search}', 'ProductCrudController@search');
     Route::get('/product/search/', 'ProductCrudController@search');
     Route::post('/purchaselisting/createlisting ','OtherController@createlisting');
+    Route::get('/allproductbelogntopurchase/{id}','OtherController@allproductbelogntopurchase');
 
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('category', 'CategoryCrudController');
