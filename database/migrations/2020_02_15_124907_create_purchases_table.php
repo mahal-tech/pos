@@ -18,6 +18,7 @@ class CreatePurchasesTable extends Migration
             $table->integer('product_id');
             $table->integer('quantity');
             $table->float('unit_buy_price');
+            $table->float('total_buy_price');
             $table->integer('unit_sale_price');
             $table->integer('general_unit_sale_price');
             $table->date('expire_date');

@@ -14,6 +14,9 @@ Route::group([
 
     Route::get('/purchaslisting', 'PurchasCrudController@purchaselisting');
     Route::get('/allrecept', 'PurchaseReceiptCrudController@allrecept');
+    Route::get('/product/search/{search}', 'ProductCrudController@search');
+    Route::get('/product/search/', 'ProductCrudController@search');
+    Route::post('/purchaselisting/createlisting ','OtherController@createlisting');
 
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('category', 'CategoryCrudController');
